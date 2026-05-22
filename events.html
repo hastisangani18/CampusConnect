@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - CampusConnect</title>
+
+    <link rel="stylesheet" href="events.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="sidebar">
+
+            <h2>CampusConnect</h2>
+
+            <a href="dashboard.html">🏠 Dashboard</a>
+<a href="notes.html">📚 Notes</a>
+<a href="events.html">🎉 Events</a>
+<a href="marketplace.html">🛒 Marketplace</a>
+<a href="lostfound.html">🔍 Lost & Found</a>
+<a href="assistant.html">🤖 AI Assistant</a>
+<a href="#" onclick="logout()">
+🚪 Logout
+</a>
+        </div>
+
+        <div class="main-content">
+
+            <div class="top-section">
+
+                <h1>🎉 College Events</h1>
+
+                <button class="event-btn">
+                    + Create Event
+                </button>
+                <input
+type="text"
+id="eventTitle"
+placeholder="Event Name"
+>
+
+<input
+type="date"
+id="eventDate"
+>
+
+<button onclick="addEvent()">
+Save Event
+</button>
+
+            </div>
+
+            <div class="events-container">
+
+                <div class="event-card">
+
+                    <h3>Hackathon 2026 🚀</h3>
+
+                    <p class="date">
+                        📅 25 May 2026
+                    </p>
+
+                    <p>
+                        Participate in a 24-hour coding competition
+                        with exciting prizes.
+                    </p>
+
+                    <button>Register</button>
+
+                </div>
+
+                <div class="event-card">
+
+                    <h3>Web Development Workshop 💻</h3>
+
+                    <p class="date">
+                        📅 30 May 2026
+                    </p>
+
+                    <p>
+                        Learn frontend and backend development
+                        from industry mentors.
+                    </p>
+
+                    <button>Join Workshop</button>
+
+                </div>
+
+                <div class="event-card">
+
+                    <h3>AI & ML Seminar 🤖</h3>
+
+                    <p class="date">
+                        📅 5 June 2026
+                    </p>
+
+                    <p>
+                        Explore latest AI trends, machine learning,
+                        and real-world applications.
+                    </p>
+
+                    <button>Attend</button>
+
+                </div>
+
+                <div class="event-card">
+
+                    <h3>Placement Training 📚</h3>
+
+                    <p class="date">
+                        📅 10 June 2026
+                    </p>
+
+                    <p>
+                        Resume building, aptitude practice,
+                        and mock interview sessions.
+                    </p>
+
+                    <button>Enroll</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+
+async function addEvent(){
+
+const title =
+document.getElementById(
+"eventTitle"
+).value;
+
+const date =
+document.getElementById(
+"eventDate"
+).value;
+
+const response =
+await fetch(
+"http://localhost:5000/events",
+{
+
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:JSON.stringify({
+title,
+date
+})
+
+});
+
+const data=
+await response.json();
+
+alert(data.message);
+
+location.reload();
+
+}
+
+</script>
+<script>
+
+function logout(){
+
+localStorage.removeItem("user");
+
+window.location.href="login.html";
+
+}
+
+</script>
+
+</body>
+</html>

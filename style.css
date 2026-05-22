@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    height: 100vh;
+    background: linear-gradient(to right,#4f46e5,#7c3aed);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 90%;
+    max-width: 1100px;
+    height: 600px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+}
+
+.left-section{
+    flex: 1;
+    background: linear-gradient(to bottom,#4338ca,#6d28d9);
+    color: white;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.left-section h1{
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.left-section p{
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.right-section{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box{
+    width: 80%;
+    max-width: 350px;
+}
+
+.login-box h2{
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.login-box input{
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.login-box input:focus{
+    outline: none;
+    border-color: #6d28d9;
+}
+
+.login-box button{
+    width: 100%;
+    padding: 14px;
+    border: none;
+    background: #6d28d9;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.login-box button:hover{
+    background: #5b21b6;
+}
+
+.signup-text{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.signup-text a{
+    text-decoration: none;
+    color: #6d28d9;
+    font-weight: bold;
+}
+
+@media(max-width:768px){
+
+    .container{
+        flex-direction: column;
+        height: auto;
+    }
+
+    .left-section{
+        padding: 40px;
+        text-align: center;
+    }
+
+    .left-section h1{
+        font-size: 38px;
+    }
+
+    .right-section{
+        padding: 40px 0;
+    }
+}

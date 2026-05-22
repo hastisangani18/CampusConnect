@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost & Found - CampusConnect</title>
+
+    <link rel="stylesheet" href="lostfound.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="sidebar">
+
+            <h2>CampusConnect</h2>
+
+           <a href="dashboard.html">🏠 Dashboard</a>
+<a href="notes.html">📚 Notes</a>
+<a href="events.html">🎉 Events</a>
+<a href="marketplace.html">🛒 Marketplace</a>
+<a href="lostfound.html">🔍 Lost & Found</a>
+<a href="assistant.html">🤖 AI Assistant</a>
+<a href="#" onclick="logout()">
+🚪 Logout
+</a>
+        </div>
+
+        <div class="main-content">
+
+            <div class="top-section">
+
+                <h1>🔍 Lost & Found</h1>
+
+                <button class="report-btn">
+                    + Report Item
+                </button>
+
+                <input type="text" id="lostItem" placeholder="Item name">
+<textarea id="lostDescription" placeholder="Description"></textarea>
+<input type="text" id="lostContact" placeholder="Contact number">
+
+<button onclick="addLostItem()">
+Save Item
+</button>
+
+            </div>
+
+            <div class="items-container">
+
+                <div class="item-card">
+
+                    <img 
+                        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop"
+                        alt="Shoes"
+                    >
+
+                    <div class="content">
+
+                        <h3>Lost Shoes 👟</h3>
+
+                        <p>
+                            Black sports shoes found near college canteen.
+                        </p>
+
+                        <span class="status found">
+                            Found
+                        </span>
+
+                        <button>Contact</button>
+
+                    </div>
+
+                </div>
+
+                <div class="item-card">
+
+                    <img 
+                        src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1200&auto=format&fit=crop"
+                        alt="Phone"
+                    >
+
+                    <div class="content">
+
+                        <h3>iPhone 13 📱</h3>
+
+                        <p>
+                            Lost mobile phone in seminar hall yesterday.
+                        </p>
+
+                        <span class="status lost">
+                            Lost
+                        </span>
+
+                        <button>Contact</button>
+
+                    </div>
+
+                </div>
+
+                <div class="item-card">
+
+                    <img 
+                        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop"
+                        alt="ID Card"
+                    >
+
+                    <div class="content">
+
+                        <h3>College ID Card 🪪</h3>
+
+                        <p>
+                            Student ID card found near library section.
+                        </p>
+
+                        <span class="status found">
+                            Found
+                        </span>
+
+                        <button>Contact</button>
+
+                    </div>
+
+                </div>
+
+                <div class="item-card">
+
+                    <img 
+                        src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=1200&auto=format&fit=crop"
+                        alt="Camera"
+                    >
+
+                    <div class="content">
+
+                        <h3>Digital Camera 📷</h3>
+
+                        <p>
+                            Lost camera during cultural fest event.
+                        </p>
+
+                        <span class="status lost">
+                            Lost
+                        </span>
+
+                        <button>Contact</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+async function addLostItem(){
+
+const item = document.getElementById("lostItem").value;
+const description = document.getElementById("lostDescription").value;
+const contact = document.getElementById("lostContact").value;
+
+const response = await fetch("http://localhost:5000/lostfound", {
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+item,
+description,
+contact
+})
+});
+
+const data = await response.json();
+
+alert(data.message);
+
+location.reload();
+
+}
+</script>
+<script>
+
+function logout(){
+
+localStorage.removeItem("user");
+
+window.location.href="login.html";
+
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace - CampusConnect</title>
+
+    <link rel="stylesheet" href="marketplace.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="sidebar">
+
+            <h2>CampusConnect</h2>
+
+            <a href="dashboard.html">🏠 Dashboard</a>
+<a href="notes.html">📚 Notes</a>
+<a href="events.html">🎉 Events</a>
+<a href="marketplace.html">🛒 Marketplace</a>
+<a href="lostfound.html">🔍 Lost & Found</a>
+<a href="assistant.html">🤖 AI Assistant</a>
+<a href="#" onclick="logout()">
+🚪 Logout
+</a>
+        </div>
+
+        <div class="main-content">
+
+            <div class="top-section">
+
+                <h1>🛒 Student Marketplace</h1>
+
+                <button class="sell-btn">
+                    + Sell Item
+                </button>
+
+                <input type="text" id="item" placeholder="Item name">
+<input type="text" id="price" placeholder="Price">
+<input type="text" id="contact" placeholder="Contact number">
+
+<button onclick="addItem()">
+Save Item
+</button>
+
+            </div>
+
+            <div class="market-container">
+
+                <div class="market-card">
+
+                    <img 
+                        src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop"
+                        alt="Laptop"
+                    >
+
+                    <h3>HP Laptop</h3>
+
+                    <p>
+                        Good condition laptop for coding and study.
+                    </p>
+
+                    <h4>₹25,000</h4>
+
+                    <button>Contact Seller</button>
+
+                </div>
+
+                <div class="market-card">
+
+                    <img 
+                        src="https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1200&auto=format&fit=crop"
+                        alt="Books"
+                    >
+
+                    <h3>Engineering Books</h3>
+
+                    <p>
+                        Complete semester books at affordable price.
+                    </p>
+
+                    <h4>₹1,500</h4>
+
+                    <button>Buy Now</button>
+
+                </div>
+
+                <div class="market-card">
+
+                    <img 
+                        src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1200&auto=format&fit=crop"
+                        alt="Headphones"
+                    >
+
+                    <h3>Wireless Headphones</h3>
+
+                    <p>
+                        Noise cancellation headphones for study.
+                    </p>
+
+                    <h4>₹2,000</h4>
+
+                    <button>Contact Seller</button>
+
+                </div>
+
+                <div class="market-card">
+
+                    <img 
+                        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
+                        alt="Calculator"
+                    >
+
+                    <h3>Scientific Calculator</h3>
+
+                    <p>
+                        Perfect for engineering mathematics exams.
+                    </p>
+
+                    <h4>₹700</h4>
+
+                    <button>Buy Now</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+async function addItem(){
+
+const item = document.getElementById("item").value;
+const price = document.getElementById("price").value;
+const contact = document.getElementById("contact").value;
+
+const response = await fetch("http://localhost:5000/marketplace", {
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+item,
+price,
+contact
+})
+});
+
+const data = await response.json();
+
+alert(data.message);
+
+location.reload();
+
+}
+</script>
+<script>
+
+function logout(){
+
+localStorage.removeItem("user");
+
+window.location.href="login.html";
+
+}
+
+</script>
+</body>
+</html>

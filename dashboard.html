@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CampusConnect</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+    <div class="dashboard">
+
+        <aside class="sidebar">
+            <h2>CampusConnect</h2>
+
+            <a href="dashboard.html">🏠 Dashboard</a>
+<a href="notes.html">📚 Notes</a>
+<a href="events.html">🎉 Events</a>
+<a href="marketplace.html">🛒 Marketplace</a>
+<a href="lostfound.html">🔍 Lost & Found</a>
+<a href="assistant.html">🤖 AI Assistant</a>
+<a href="#" onclick="logout()">
+🚪 Logout
+</a>
+        </aside>
+
+        <main class="main-content">
+
+            <div class="topbar">
+                <h1 id="welcomeUser">Hello, Student 👋</h1>
+                <p>Welcome to your college community hub</p>
+            </div>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>📚 Notes</h3>
+                    <p>Upload and access study material.</p>
+                    <button onclick="window.location.href='notes.html'">
+                        Open Notes
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3>🎉 Events</h3>
+                    <p>Explore college events and workshops.</p>
+                    <button onclick="window.location.href='events.html'">
+                        View Events
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3>🛒 Marketplace</h3>
+                    <p>Buy and sell books, gadgets, and more.</p>
+                    <button onclick="window.location.href='marketplace.html'">
+                        Visit Market
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3>🔍 Lost & Found</h3>
+                    <p>Report or find lost items on campus.</p>
+                    <button onclick="window.location.href='lostfound.html'">
+                        Search Items
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3>🤖 AI Assistant</h3>
+                    <p>Ask doubts, get study help, and prepare for placements.</p>
+                    <button onclick="window.location.href='assistant.html'">
+                        Open Assistant
+                    </button>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script>
+        const user = JSON.parse(localStorage.getItem("user"));
+
+        if(user){
+            document.getElementById("welcomeUser").innerText =
+                "Hello, " + user.name + " 👋";
+        }
+
+        const logoutBtn = document.getElementById("logoutBtn");
+
+        logoutBtn.addEventListener("click", () => {
+            localStorage.removeItem("user");
+            window.location.href = "login.html";
+        });
+    </script>
+    <script>
+
+const user = JSON.parse(localStorage.getItem("user"));
+
+if(user){
+document.getElementById("welcomeUser")
+.innerText = `Hello, ${user.name} 👋`;
+}
+
+</script>
+<script>
+
+function logout(){
+
+localStorage.removeItem("user");
+
+window.location.href="login.html";
+
+}
+
+</script>
+<script>
+const user = JSON.parse(localStorage.getItem("user"));
+
+if(user){
+  document.getElementById("welcomeUser").innerText = `Hello, ${user.name} 👋`;
+}
+
+function logout(){
+  localStorage.removeItem("user");
+  window.location.href = "login.html";
+}
+</script>
+</body>
+</html>

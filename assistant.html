@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant - CampusConnect</title>
+
+    <link rel="stylesheet" href="assistant.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="sidebar">
+
+            <h2>CampusConnect</h2>
+
+            <a href="dashboard.html">🏠 Dashboard</a>
+<a href="notes.html">📚 Notes</a>
+<a href="events.html">🎉 Events</a>
+<a href="marketplace.html">🛒 Marketplace</a>
+<a href="lostfound.html">🔍 Lost & Found</a>
+<a href="assistant.html">🤖 AI Assistant</a>
+<a href="#" onclick="logout()">
+🚪 Logout
+</a>
+
+        </div>
+
+        <div class="main-content">
+
+            <div class="chat-header">
+
+                <h1>🤖 Campus AI Assistant</h1>
+
+                <p>
+                    Ask anything about studies, coding,
+                    placements, and college life.
+                </p>
+
+            </div>
+
+            <div class="chat-box" id="chatBox">
+
+                <div class="message bot">
+                    Hello 👋<br>
+                    I am your Campus AI Assistant.
+                </div>
+
+            </div>
+
+            <div class="input-area">
+
+                <input 
+                    type="text"
+                    id="userInput"
+                    placeholder="Ask something..."
+                >
+
+                <button id="sendBtn">
+                    Send
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="assistant.js"></script>
+    <script>
+
+function logout(){
+
+localStorage.removeItem("user");
+
+window.location.href="login.html";
+
+}
+
+</script>
+
+</body>
+</html>
