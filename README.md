@@ -62,3 +62,7 @@ node server.js
 Hasti Sangani
 
 Engineering Student | Full Stack Development Learning Journey 🚀
+
+## 🌐 Live Demo
+
+https://campusconnect-student-community-platform.netlify.app
